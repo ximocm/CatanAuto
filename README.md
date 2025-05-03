@@ -14,11 +14,6 @@ intervals for _The Settlers of Catan™_ (and any other board game that needs 2 
 * Info overlay with credits, licence and donation link.  
 * **Portable**: only needs Python ≥ 3.10 and `pygame-ce`.
 
-<p align="center">
-  <img src="docs/screenshot_light.png" width="250">
-  <img src="docs/screenshot_dark.png"  width="250">
-</p>
-
 > _Not affiliated with Catan GmbH or any publisher. 100 % fan project._
 
 ---
