@@ -1,0 +1,18 @@
+# Entorno virtual
+/venv/
+/env/
+/pygame/
+
+# Archivos compilados
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Archivos de VSCode
+.vscode/
+
+# Archivos de logs
+*.log
+
+# Archivos de entorno
+.env
