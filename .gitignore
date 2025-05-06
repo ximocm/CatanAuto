@@ -3,6 +3,11 @@
 /env/
 /pygame/
 
+# Archivos apk
+/bin/
+/dist/
+/.buildozer/
+
 # Archivos compilados
 __pycache__/
 *.py[cod]
