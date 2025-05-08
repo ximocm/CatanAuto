@@ -20,8 +20,12 @@
 #     ping.wav   moon.png   sun.png   dice.png   info.png   pause.png
 #     (all with transparent background)
 # ──────────────────────────────────────────────────────────────
-
-import pygame, random, os, sys, textwrap
+print("✅ pygame initialized")
+# ──────────────────────────────────────────────────────────────
+import sys, traceback
+# ──────────────────────────────────────────────────────────────
+import pygame, random, os, textwrap
+from kivy.utils import platform
 
 # ───────────  PLATFORM DETECTION  ────────────
 IS_ANDROID = hasattr(sys, "getandroidapilevel") or sys.platform.startswith("android")
@@ -52,13 +56,29 @@ font_big   = pygame.font.Font(None, s(110))
 font_small = pygame.font.Font(None, s(36))
 
 # ───────────────  LOAD AUDIO & ICONS  ───────────────
-pygame.mixer.init()
-ping       = pygame.mixer.Sound(resource_path("ping.wav"))
-icon_moon  = pygame.image.load(resource_path("moon.png")).convert_alpha()
-icon_sun   = pygame.image.load(resource_path("sun.png")).convert_alpha()
-icon_dice  = pygame.image.load(resource_path("dice.png")).convert_alpha()
-icon_info  = pygame.image.load(resource_path("info.png")).convert_alpha()
-icon_pause = pygame.image.load(resource_path("pause.png")).convert_alpha()
+try:
+    pygame.mixer.init()
+    print("✅ Mixer initialized")
+except Exception as e:
+    print(f"❌ Error initializing mixer: {e}")
+
+moon_path  = os.path.abspath("moon.png")
+sun_path   = os.path.abspath("sun.png")
+dice_path  = os.path.abspath("dice.png")
+info_path  = os.path.abspath("info.png")
+pause_path = os.path.abspath("pause.png")
+
+try:
+    icon_moon  = pygame.image.load(moon_path).convert_alpha()
+    icon_sun   = pygame.image.load(sun_path).convert_alpha()
+    icon_dice  = pygame.image.load(dice_path).convert_alpha()
+    icon_info  = pygame.image.load(info_path).convert_alpha()
+    icon_pause = pygame.image.load(pause_path).convert_alpha()
+    print("✅ Icons loaded successfully")
+except Exception as e:
+    print(f"❌ Error loading icons: {e}")
+    # Imágenes vacías por defecto
+    icon_moon = icon_sun = icon_dice = icon_info = icon_pause = pygame.Surface((50, 50), pygame.SRCALPHA)
 
 # ───────────────  TINT ICONS FOR DARK MODE  ─────────────
 def tint(icon, color):
@@ -210,8 +230,8 @@ while running:
         elif ev.type == pygame.KEYDOWN and ev.key == pygame.K_f and not IS_ANDROID:
             flags ^= pygame.FULLSCREEN
             screen = pygame.display.set_mode((0,0), flags) \
-                     if flags & pygame.FULLSCREEN \
-                     else pygame.display.set_mode((320,480), pygame.RESIZABLE)
+                    if flags & pygame.FULLSCREEN \
+                    else pygame.display.set_mode((320,480), pygame.RESIZABLE)
             W, H = screen.get_size()
             font_big   = pygame.font.Font(None, s(110))
             font_small = pygame.font.Font(None, s(36))
@@ -268,7 +288,6 @@ while running:
             # roll now
             elif btn_now.collidepoint((x,y)):
                 current_roll = roll()
-                ping.play()
                 paused = (current_roll==7)
                 if paused:
                     robber_player = random.randint(1, num_players)
@@ -280,7 +299,6 @@ while running:
         # automatic roll event
         elif ev.type == ROLL_EVT and started and not paused and not manual_paused:
             current_roll = roll()
-            ping.play()
             if current_roll == 7:
                 paused = True
                 robber_player = random.randint(1, num_players)
