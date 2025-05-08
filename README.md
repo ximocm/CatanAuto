@@ -1,7 +1,7 @@
 # Catan Dice Roller 🎲 🌙/☀️
 
 ![License: CC BY-NC 4.0](https://img.shields.io/badge/License-BY--NC%204.0-lightgrey.svg)
-[![Pay Pal](https://img.shields.io/badge/buy%20me-a%20coffee-ffdd00?logo=paypal)](https://paypal.me/ximocm)
+[![Pay Pal](https://img.shields.io/badge/buy%20me-a%20coffee-ffdd00?logo=paypal)](https://paypal.me/ximocabanes)
 
 Light-weight, cross-platform utility that rolls **two virtual 6-sided dice** at fixed
 intervals for _The Settlers of Catan™_ (and any other board game that needs 2 d6).

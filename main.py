@@ -62,6 +62,7 @@ clock = pygame.time.Clock()
 running = True
 
 # ───────── LOOP PRINCIPAL ─────────
+link_rect = None
 while running:
     FG = LIGHT if state.dark else (0, 0, 0)
     BG = DARK_BG if state.dark else LIGHT_BG
@@ -86,6 +87,9 @@ while running:
                 x, y = ev.pos
 
             if state.show_info:
+                if link_rect and link_rect.collidepoint((x, y)):
+                    import webbrowser
+                    webbrowser.open("https://paypal.me/ximocabanes")
                 state.show_info = False
                 continue
             elif buttons["info"].collidepoint((x, y)):
@@ -189,7 +193,10 @@ while running:
         draw_button(screen, font_small, buttons["now"], icon=dice)
 
         if state.show_info:
-            draw_info_panel(screen, W, H, font_small, INFO_LINES)
+            link_rect = draw_info_panel(screen, W, H, font_small, INFO_LINES)
+        else:
+            link_rect = None
+
 
     pygame.display.flip()
     clock.tick(30)

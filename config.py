@@ -11,7 +11,7 @@ INFO_LINES = [
     "License: CC BY-NC-4.0 (non-commercial)",
     "",
     "Enjoying my projects?",
-    "Buy me a coffee: https://paypal.me/ximocm",
+    "Buy me a coffee: https://paypal.me/ximocabanes",
     "",
     "Icons by Flaticon (Good Ware, Xinh Studio, Freepik)",
     "Sound Effect by u_qpfzpydtro from Pixabay"
