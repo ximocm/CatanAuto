@@ -10,17 +10,23 @@ LIGHT_BG = (255, 255, 255)    # Background color for light mode
 
 # Lines displayed in the info panel
 INFO_LINES = [
-    "Catan Dice Roller v1.2",
-    "Author: Ximo (github.com/ximocm)",
-    "License: CC BY-NC-4.0 (non-commercial)",
+    "Catan Dice Roller v1.3",
+    "Author: Ximo  (github.com/ximocm)",
+    "License: Creative Commons BY-NC 4.0",
     "",
-    "Enjoying my projects?",
-    "Buy me a coffee: https://paypal.me/ximocabanes",
+    "100% fan-made project.",
+    "Not affiliated with Catan GmbH or any publisher.",
     "",
-    "Icons by Flaticon (Good Ware, Xinh Studio, Freepik)",
-    "Sound Effect by u_qpfzpydtro from Pixabay",
+    "If you enjoy this tool, consider supporting:",
+    "https://paypal.me/ximocabanes",
+    "to help create future tools and content.",
     "",
-    "© 2025 Ximo"
+    "Assets used:",
+    "- Icons by Flaticon:",
+    "  Good Ware, Xinh Studio, Freepik",
+    "- Sound effect by u_qpfzpydtro (Pixabay)",
+    "",
+    "© 2025 Ximo. All rights reserved."
 ]
 
 def scale(base_size, w, h):
