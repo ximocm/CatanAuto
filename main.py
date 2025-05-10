@@ -4,9 +4,10 @@
 #  Author  : Ximo (https://github.com/ximocm)
 #  License : Creative Commons BY-NC 4.0 – Free for NON-commercial use
 #
-#  New in v1.3:
+#  New in v1.3.1:
 #    • Updated code comments for production readability
 #    • Changed the file structure
+#    • Fix darkmode +/- button text color
 #
 #  New in v1.2:
 #    • Added manual Pause/Resume button (pause.png)
@@ -239,8 +240,8 @@ while running:
         draw_button(screen, font_small, buttons["info"], icon=info)
         draw_button(screen, font_small, buttons["dark"], icon=(moon if not state.dark else sun))
         draw_button(screen, font_small, buttons["pause"], icon=pause)
-        draw_button(screen, font_small, buttons["minus"], text="–")
-        draw_button(screen, font_small, buttons["plus"], text="+")
+        draw_button(screen, font_small, buttons["minus"], text="–", text_color=LIGHT if state.dark else (0, 0, 0))
+        draw_button(screen, font_small, buttons["plus"], text="+", text_color=LIGHT if state.dark else (0, 0, 0))
         draw_button(screen, font_small, buttons["now"], icon=dice)
 
         # Show info panel if active
